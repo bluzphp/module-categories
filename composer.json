@@ -1,0 +1,16 @@
+{
+  "name": "bluzphp/bluz-categories-module",
+  "type": "bluz-module",
+  "license": "MIT",
+  "description": "bluz categories module",
+  "require": {
+    "bluzphp/composer-plugin": "~0.1",
+    "bluzphp/module-media": "dev-master"
+  },
+  "extra": {
+    "bluz": {
+      "module_name": "categories",
+      "required_models": "categories"
+    }
+  }
+}
