@@ -18,3 +18,5 @@ LOCK TABLES `acl_privileges` WRITE;
 REPLACE INTO `acl_privileges` (`roleId`, `module`, `privilege`)
 VALUES
   (2,'categories','Management');
+
+UNLOCK TABLES;
