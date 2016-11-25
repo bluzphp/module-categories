@@ -5,7 +5,7 @@
   "description": "bluz categories module",
   "require": {
     "bluzphp/composer-plugin": "~0.2",
-    "bluzphp/module-media": "dev-master"
+    "bluzphp/module-media": "~1.0"
   },
   "extra": {
     "bluz": {
