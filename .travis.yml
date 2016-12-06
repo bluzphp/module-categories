@@ -12,10 +12,9 @@ install:
   # Database
   - mysql -e 'CREATE DATABASE bluz;'
   - cd skeleton
-  - mysql -uroot bluz < structure.ddl
-  - mysql -uroot bluz < dump.sql
+  - vendor/bin/phinx migrate -e default
   # composer require
-  - ENV=dev composer require bluzphp/module-categories
+  - ENV=default composer require bluzphp/module-categories
   # Newman
   - npm install -g newman@1
 script:
