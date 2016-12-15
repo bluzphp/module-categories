@@ -26,7 +26,7 @@ class Table extends \Bluz\Db\Table
      *
      * @var string
      */
-    protected $table = 'categories';
+    protected $name = 'categories';
 
     /**
      * Primary key(s)
