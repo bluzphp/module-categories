@@ -5,7 +5,6 @@
 ?>
 <script>
     // use data-spy="grid" for use AJAX for reload grid
-
     require(['categories/bluz.categories']);
 </script>
 <style>
@@ -54,7 +53,7 @@
 
     <div class="tree-container">
         <div class="tree-wrapper">
-            <?php if ($category) : ?>
+            <?php if (isset($category)) : ?>
                 <?= $this->partial('partial/tree.phtml', ['category' => $category]) ?>
             <?php endif; ?>
         </div>

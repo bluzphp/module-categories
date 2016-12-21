@@ -10,7 +10,7 @@
 namespace Application\Tests\Categories;
 
 use Application\Tests\ControllerTestCase;
-use Bluz\Http;
+use Bluz\Http\StatusCode;
 
 /**
  * @package  Application\Tests\Categories
@@ -27,7 +27,7 @@ class CrudTest extends ControllerTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->setupSuperUserIdentity();
+        self::setupSuperUserIdentity();
         $this->getApp()->useLayout(false);
     }
 
@@ -37,9 +37,9 @@ class CrudTest extends ControllerTestCase
     public function testCreateForm()
     {
         $this->dispatch('/categories/crud/');
-        $this->assertOk();
-
-        $this->assertQueryCount('form[method="POST"]', 1);
+        
+        self::assertOk();
+        self::assertQueryCount('form[method="POST"]', 1);
     }
 
     /**
@@ -49,15 +49,15 @@ class CrudTest extends ControllerTestCase
     {
         /*
         $this->dispatchRouter('/categories/crud/', ['id' => 1]);
-        $this->assertOk();
+        self::assertOk();
 
-        $this->assertQueryCount('form[method="PUT"]', 1);
-        $this->assertQueryCount('input[name="id"][value="1"]', 1);
+        self::assertQueryCount('form[method="PUT"]', 1);
+        self::assertQueryCount('input[name="id"][value="1"]', 1);
         */
 
         // Remove the following lines when you implement this test.
         // Need to create element with ID
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'This test has not been implemented yet.'
         );
     }
@@ -68,6 +68,6 @@ class CrudTest extends ControllerTestCase
     public function testEditFormError()
     {
         $this->dispatch('/categories/crud/', ['id' => 100042]);
-        $this->assertResponseCode(404);
+        self::assertResponseCode(StatusCode::NOT_FOUND);
     }
 }
