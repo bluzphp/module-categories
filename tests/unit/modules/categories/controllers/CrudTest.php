@@ -13,6 +13,8 @@ use Application\Tests\ControllerTestCase;
 use Bluz\Http\StatusCode;
 
 /**
+ * @group    module-categories
+ *
  * @package  Application\Tests\Categories
  * @author   Anton Shevchuk
  * @created  17.06.14 10:39
