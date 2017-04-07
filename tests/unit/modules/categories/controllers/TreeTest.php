@@ -12,6 +12,8 @@ namespace Application\Tests\Categories;
 use Application\Tests\ControllerTestCase;
 
 /**
+ * @group    module-categories
+ *
  * @package  Application\Tests\Categories
  * @author   Anton Shevchuk
  * @created  17.06.14 10:41
