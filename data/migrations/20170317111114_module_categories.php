@@ -45,7 +45,7 @@ class ModuleCategories extends AbstractMigration
                 'delete' => 'CASCADE',
                 'update' => 'CASCADE'
             ])
-            ->addIndex(['parentId', 'alias'], ['unique' => true])
+            ->addIndex(['parentId', 'alias'], ['unique' => true, 'name' => 'UNIQUE_categories_alias'])
             ->create();
 
         $data = [
