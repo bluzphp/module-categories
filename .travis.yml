@@ -6,9 +6,9 @@ install:
   # Composer
   - composer self-update
   - composer create-project bluzphp/skeleton --stability=dev
+  - cd skeleton
   # Database
   - mysql -e 'CREATE DATABASE bluz;'
-  - cd skeleton
   # Require current module
   - composer require bluzphp/module-categories:dev-master
   # Migrations
