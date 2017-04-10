@@ -12,7 +12,7 @@ install:
   # Require current module
   - composer require bluzphp/module-categories:dev-master
   # Migrations
-  - php vendor/bin/blizman db:migrate
+  - php vendor/bin/bluzman db:migrate
   - php vendor/bin/bluzman db:seed:run
 script:
   # Code style
