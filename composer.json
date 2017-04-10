@@ -4,12 +4,6 @@
   "license": "MIT",
   "description": "bluz categories module",
   "require": {
-    "bluzphp/composer-plugin": "~1.0"
-  },
-  "extra": {
-    "bluz": {
-      "module_name": "categories",
-      "required_models": "categories"
-    }
+    "bluzphp/composer-plugin": "~2.0"
   }
 }

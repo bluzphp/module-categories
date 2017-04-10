@@ -6,24 +6,22 @@ install:
   # Composer
   - composer self-update
   - composer create-project bluzphp/skeleton --stability=dev
+  - cd skeleton
   # Database
   - mysql -e 'CREATE DATABASE bluz;'
-  - cd skeleton
   # Require current module
   - composer require bluzphp/module-categories:dev-master
   # Migrations
-  - vendor/bin/phinx migrate -e default
-  - vendor/bin/phinx seed:run
-before_script:
-  # Codeception
-  - wget http://codeception.com/codecept.phar
+  - php vendor/bin/bluzman db:migrate
+  - php vendor/bin/bluzman db:seed:run
 script:
   # Code style
   - php vendor/bin/phpcs ./application --standard=PSR1,PSR2 --encoding=utf-8 --ignore=./application/_loader.php
   # WebServer run
-  - nohup bash -c "php -S 127.0.0.1:8000 -t ./public/ ./public/routing.php 2>&1 &" && sleep 1; cat nohup.out
+  #- nohup bash -c "php -S 127.0.0.1:8000 -t ./public/ ./public/routing.php 2>&1 &" && sleep 1; cat nohup.out
+  - php vendor/bin/bluzman server:start --host 127.0.0.1 -b
   # CodeCeption
-  - php codecept.phar run -g module-categories
+  - php vendor/bin/bluzman test module-categories
 notifications:
   email: false
   webhooks:
