@@ -42,9 +42,7 @@ return function ($parentId = null, $rootId = null) {
     }
     $this->assign('tree', $tree);
 
-    $crud = new Crud();
-
-    $crud->setCrud(Categories\Crud::getInstance());
+    $crud = new Crud(Categories\Crud::getInstance());
 
     $crud->get('system', 'crud/get');
     $crud->post('system', 'crud/post');
