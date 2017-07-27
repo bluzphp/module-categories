@@ -4,9 +4,8 @@
  * @link https://github.com/bluzphp/skeleton
  */
 
-/**
- * @namespace
- */
+declare(strict_types=1);
+
 namespace Application\Categories;
 
 use Bluz\Proxy\Db;
@@ -40,7 +39,7 @@ class Table extends \Bluz\Db\Table
      */
     public function getRootCategories()
     {
-        return $this->select()->where('parentId IS NULL')->orderBy('name', 'ASC')->execute();
+        return self::select()->where('parentId IS NULL')->orderBy('name')->execute();
     }
     
     /**
@@ -61,7 +60,7 @@ class Table extends \Bluz\Db\Table
      */
     public function buildTreeByAlias($alias)
     {
-        $current = $this->findRow(['alias' => $alias]);
+        $current = self::findRow(['alias' => $alias]);
 
         return $this->buildTree($current['id']);
     }
