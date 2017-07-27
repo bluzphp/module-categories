@@ -25,7 +25,7 @@ class TreeTest extends ControllerTestCase
      */
     public function testControllerPage()
     {
-        $this->setupSuperUserIdentity();
+        self::setupSuperUserIdentity();
 
         $this->dispatch('/categories/tree/');
         
