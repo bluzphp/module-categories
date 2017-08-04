@@ -30,7 +30,7 @@ class CrudTest extends ControllerTestCase
     {
         parent::setUp();
         self::setupSuperUserIdentity();
-        $this->getApp()->useLayout(false);
+        self::getApp()->useLayout(false);
     }
 
     /**
