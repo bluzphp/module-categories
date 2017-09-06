@@ -1,5 +1,5 @@
 <?php
-$uid = uniqid('form_');
+$uid = uniqid('form_', false);
 $parentId = $parentId ?: $row->parentId;
 $rootId = $rootId ?: $row->rootId;
 ?>
@@ -14,6 +14,7 @@ $rootId = $rootId ?: $row->rootId;
             <h4 class="modal-title"><?=__('Category')?></h4>
         </div>
         <div class="modal-body">
+            <?php if ($parentId && $rootId) : ?>
             <div class="form-group">
                 <label class="control-label col-lg-2" for="name"><?=__('Parent')?></label>
                 <div class="col-lg-10">
@@ -26,6 +27,7 @@ $rootId = $rootId ?: $row->rootId;
                     </select>
                 </div>
             </div>
+            <?php endif; ?>
             <div class="form-group">
                 <label class="control-label col-lg-2" for="name"><?=__('Name')?></label>
                 <div class="col-lg-10">
