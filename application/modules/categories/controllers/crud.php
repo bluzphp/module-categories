@@ -26,21 +26,8 @@ return function ($parentId = null, $rootId = null) {
     /**
      * @var Controller $this
      */
-    $this->assign('parentId', $parentId);
     $this->assign('rootId', $rootId);
-
-    if ($rootId) {
-        // get tree of category
-        // required array for view
-        $tree = array(Categories\Table::getInstance()->buildTree($rootId));
-    } else {
-        // get root categories
-        $tree = Categories\Table::getInstance()->getRootCategories();
-        $rootRow = new Categories\Row();
-        $rootRow->name = '---';
-        array_unshift($tree, $rootRow);
-    }
-    $this->assign('tree', $tree);
+    $this->assign('parentId', $parentId);
 
     $crud = new Crud(Categories\Crud::getInstance());
 
