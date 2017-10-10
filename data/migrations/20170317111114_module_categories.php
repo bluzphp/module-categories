@@ -37,7 +37,7 @@ class ModuleCategories extends AbstractMigration
         $table = $this->table('categories');
         $table
             ->addColumn('rootId', 'integer')
-            ->addColumn('parentId', 'integer')
+            ->addColumn('parentId', 'integer', ['null' => true])
             ->addColumn('name', 'string', ['length' => 255])
             ->addColumn('alias', 'string', ['length' => 255])
             ->addTimestamps('created', 'updated')
