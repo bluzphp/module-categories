@@ -47,17 +47,5 @@ class ModuleCategories extends AbstractMigration
             ])
             ->addIndex(['parentId', 'alias'], ['unique' => true, 'name' => 'UNIQUE_categories_alias'])
             ->create();
-
-        $data = [
-            [
-                'roleId' => 2,
-                'module' => 'categories',
-                'privilege' => 'Management'
-            ]
-        ];
-
-        $privileges = $this->table('acl_privileges');
-        $privileges->insert($data)
-            ->save();
     }
 }
