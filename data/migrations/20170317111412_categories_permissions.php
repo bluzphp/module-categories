@@ -9,7 +9,7 @@ use Phinx\Migration\AbstractMigration;
 /**
  * CreateCategoriesTable
  */
-class ModuleCategoriesPermissions extends AbstractMigration
+class CategoriesPermissions extends AbstractMigration
 {
     /**
      * Migrate Up.
