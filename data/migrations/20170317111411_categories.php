@@ -9,7 +9,7 @@ use Phinx\Migration\AbstractMigration;
 /**
  * CreateCategoriesTable
  */
-class ModuleCategories extends AbstractMigration
+class Categories extends AbstractMigration
 {
     /**
      * Change Method.
