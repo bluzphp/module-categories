@@ -6,7 +6,7 @@ $uid = uniqid('form_', false);
 if ($rootId) {
     // get tree of category
     // required array for view
-    $tree = array(Table::getInstance()->buildTree($rootId));
+    $tree = [Table::getInstance()->buildTree($rootId)];
 } else {
     // get root categories
     $tree = Table::getInstance()->getRootCategories();
@@ -19,7 +19,8 @@ $parentId = $parentId ?: $row->parentId;
 $rootId = $rootId ?: $row->rootId;
 ?>
 <form id="<?= $uid ?>" action="<?= $this->url('categories', 'crud') ?>"
-      class="form-horizontal ajax <?= $parentId ? 'add-child' : 'category-form' ?> <?= $row->id ? 'category-edit' : '' ?>"
+      class="form-horizontal <?= $parentId ? 'add-child' : 'category-form' ?> <?= $row->id ? 'category-edit' : '' ?>"
+      data-ajax
       method="<?= $method ?>">
   <input type="hidden" name="id" value="<?= $row->id ?>"/>
   <input type="hidden" name="_method" value="<?= $method ?>"/>
