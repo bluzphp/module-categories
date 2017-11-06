@@ -8,18 +8,19 @@ $children = $category->getChildren();
   <h5 class="mt-2"><?= esc($category->name) ?></h5>
   <div>
     <a href="<?= $this->url('categories', 'crud', ['parentId' => $category->id, 'rootId' => $rootId]) ?>"
-       class="btn btn-success dialog create" data-ajax-method="get">
+       class="btn btn-success create" data-ajax-dialog data-ajax-method="get">
         <i class="fa fa-plus"></i>
     </a>
     <a href="<?= $this->url('categories', 'crud', ['id' => $category->id, 'rootId' => $rootId]) ?>"
-       class="btn btn-primary dialog edit" data-ajax-method="get">
+       class="btn btn-primary edit" data-ajax-dialog data-ajax-method="get">
         <i class="fa fa-pencil"></i>
     </a>
     <?php if ($children) : ?>
     <span class="btn btn-danger disabled"><i class="fa fa-trash-o"></i></span>
     <?php else: ?>
     <a href="<?= $this->url('categories', 'crud', ['id' => $category->id]) ?>"
-       class="btn btn-danger ajax confirm delete<?=($rootId === $category->id)?'-root':''?>" data-ajax-method="delete">
+       class="btn btn-danger delete<?=($rootId === $category->id)?'-root':''?>"
+       data-confirm data-ajax data-ajax-method="delete">
         <i class="fa fa-trash-o"></i>
     </a>
     <?php endif; ?>
