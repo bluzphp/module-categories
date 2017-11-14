@@ -34,7 +34,7 @@ class Row extends \Bluz\Db\Row
     /**
      * @return void
      */
-    public function beforeSave()
+    public function beforeSave() : void
     {
         $this->addValidator('name')
             ->required()
@@ -68,7 +68,7 @@ class Row extends \Bluz\Db\Row
     /**
      * @return void
      */
-    public function beforeInsert()
+    public function beforeInsert() : void
     {
         $this->created = gmdate('Y-m-d H:i:s');
         if (empty($this->parentId)) {
@@ -79,7 +79,7 @@ class Row extends \Bluz\Db\Row
     /**
      * @return void
      */
-    public function beforeUpdate()
+    public function beforeUpdate() : void
     {
         $this->updated = gmdate('Y-m-d H:i:s');
     }
