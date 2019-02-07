@@ -29,10 +29,11 @@ class Row extends \Bluz\Db\Row
     /**
      * @var Row[]
      */
-    protected $children;
+    protected $children = [];
 
     /**
      * @return void
+     * @throws \Bluz\Validator\Exception\ComponentException
      */
     public function beforeSave() : void
     {
@@ -59,7 +60,7 @@ class Row extends \Bluz\Db\Row
                         $select->andWhere('parentId IS NULL');
                     }
 
-                    return !count($select->execute());
+                    return !\count($select->execute());
                 },
                 'Category with this alias is already exists'
             );
@@ -68,7 +69,7 @@ class Row extends \Bluz\Db\Row
     /**
      * @return void
      */
-    public function beforeInsert() : void
+    public function beforeInsert(): void
     {
         $this->created = gmdate('Y-m-d H:i:s');
         if (empty($this->parentId)) {
@@ -79,7 +80,7 @@ class Row extends \Bluz\Db\Row
     /**
      * @return void
      */
-    public function beforeUpdate() : void
+    public function beforeUpdate(): void
     {
         $this->updated = gmdate('Y-m-d H:i:s');
     }
@@ -89,7 +90,7 @@ class Row extends \Bluz\Db\Row
      *
      * @param Row $row
      */
-    public function addChild(Row $row)
+    public function addChild(Row $row): void
     {
         $this->children[$row->id] = $row;
     }
@@ -97,9 +98,9 @@ class Row extends \Bluz\Db\Row
     /**
      * Get children directories
      *
-     * @return array
+     * @return Row[]
      */
-    public function getChildren()
+    public function getChildren(): array
     {
         return $this->children;
     }

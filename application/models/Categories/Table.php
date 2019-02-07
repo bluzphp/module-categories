@@ -31,7 +31,7 @@ class Table extends \Bluz\Db\Table
      * Primary key(s)
      * @var array
      */
-    protected $primary = array('id');
+    protected $primary = ['id'];
 
     /**
      * Get root categories
@@ -55,8 +55,12 @@ class Table extends \Bluz\Db\Table
 
     /**
      * Build tree by root alias
+     *
      * @param string $alias
+     *
      * @return Row
+     * @throws \Bluz\Db\Exception\DbException
+     * @throws \Bluz\Db\Exception\InvalidPrimaryKeyException
      */
     public function buildTreeByAlias($alias)
     {
