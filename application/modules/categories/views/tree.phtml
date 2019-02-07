@@ -7,22 +7,26 @@
   // use data-spy="grid" for use AJAX for reload grid
   require(['bluz.categories']);
 </script>
-<nav class="navbar navbar-light bg-light">
-  <form action="" class="form-inline select-tree" style="width: 100%">
-    <div class="input-group" style="width: 100%">
-      <label for="root" class="input-group-addon"><?= __('Module') ?></label>
-      <select id="root" class="form-control">
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <div class="col-8">
+    <form action="" class="select-tree">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <label for="root" class="input-group-text"><?= __('Module') ?></label>
+        </div>
+        <select id="root" class="form-control">
           <?php foreach ($rootTree as $tree) : ?>
             <option value="<?php echo $tree->id ?>"><?php echo $tree->name ?></option>
           <?php endforeach; ?>
-      </select>
-      <span class="input-group-btn">
-      <a href="<?= $this->url('categories', 'crud') ?>"
-         class="btn btn-secondary form-group create-root"
-         data-ajax-dialog data-ajax-method="get"><?= __('Create') ?></a>
-      </span>
-    </div>
-  </form>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="col-4">
+    <a href="<?= $this->url('categories', 'crud') ?>"
+       class="btn btn-secondary create-root"
+       data-ajax-dialog data-ajax-method="get"><?= __('Create') ?></a>
+  </div>
 </nav>
 <hr/>
 <div class="tree-container">
@@ -32,7 +36,7 @@
       <?= $this->partial('partial/tree.phtml', ['category' => $category]) ?>
     </div>
     <?php else: ?>
-    <h3>There are no categories</h3>
+    <p>There are no categories</p>
     <?php endif; ?>
   </div>
 </div>
