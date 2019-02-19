@@ -35,9 +35,9 @@ class Table extends \Bluz\Db\Table
 
     /**
      * Get root categories
-     * @return array
+     * @return Row[]
      */
-    public function getRootCategories()
+    public function getRootCategories(): array
     {
         return self::select()->where('parentId IS NULL')->orderBy('name')->execute();
     }
@@ -47,7 +47,7 @@ class Table extends \Bluz\Db\Table
      * @param int $id
      * @return Row
      */
-    public function buildTree($id = null)
+    public function buildTree($id = null): Row
     {
         $tree = $this->generateTree($id);
         return $tree[$id];
@@ -62,7 +62,7 @@ class Table extends \Bluz\Db\Table
      * @throws \Bluz\Db\Exception\DbException
      * @throws \Bluz\Db\Exception\InvalidPrimaryKeyException
      */
-    public function buildTreeByAlias($alias)
+    public function buildTreeByAlias($alias): Row
     {
         $current = self::findRow(['alias' => $alias]);
 
@@ -74,7 +74,7 @@ class Table extends \Bluz\Db\Table
      * @param integer $rootId
      * @return Row[]
      */
-    protected function generateTree($rootId)
+    protected function generateTree($rootId): array
     {
         /** @var Row[] $categories */
         $categories = Db::fetchGroup(
@@ -84,9 +84,8 @@ class Table extends \Bluz\Db\Table
         );
         $categories = array_map('reset', $categories);
 
-
         foreach ($categories as $category) {
-            if ($category->parentId && $category->id != $category->parentId) {
+            if ($category->parentId && $category->id !== $category->parentId) {
                 $categories[$category->parentId]->addChild($category);
             }
         }
