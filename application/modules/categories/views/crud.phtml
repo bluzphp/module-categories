@@ -34,8 +34,8 @@ $rootId = $rootId ?: $row->rootId;
   <div class="modal-body">
       <?php if ($parentId && $rootId) : ?>
         <div class="form-group row">
-          <label class="col-form-label col-lg-2" for="name"><?= __('Parent') ?></label>
-          <div class="col-lg-10">
+          <label class="col-form-label col-lg-3" for="name"><?= __('Parent') ?></label>
+          <div class="col-lg-9">
             <select class="form-control" name="parentId">
                 <?php
                 foreach ($tree as $category):
@@ -50,16 +50,16 @@ $rootId = $rootId ?: $row->rootId;
         </div>
       <?php endif; ?>
     <div class="form-group row">
-      <label class="col-form-label col-lg-2" for="name"><?= __('Name') ?></label>
-      <div class="col-lg-10">
+      <label class="col-form-label col-lg-3" for="name"><?= __('Name') ?></label>
+      <div class="col-lg-9">
         <input type="text" class="form-control" id="name" name="name" value="<?= esc($row->name) ?>"
                maxlength="255" required/>
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-form-label col-lg-2" for="alias"><?= __('Alias') ?></label>
+      <label class="col-form-label col-lg-3" for="alias"><?= __('Alias') ?></label>
 
-      <div class="col-lg-10">
+      <div class="col-lg-9">
         <input type="text" class="form-control" id="alias" name="alias" value="<?= esc($row->alias) ?>"
                maxlength="255" required/>
       </div>

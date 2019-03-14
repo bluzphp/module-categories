@@ -13,15 +13,15 @@ $children = $category->getChildren();
     </a>
     <a href="<?= $this->url('categories', 'crud', ['id' => $category->id, 'rootId' => $rootId]) ?>"
        class="btn btn-primary edit" data-ajax-dialog data-ajax-method="get">
-        <i class="fa fa-pencil"></i>
+        <i class="fas fa-pencil-alt"></i>
     </a>
     <?php if ($children) : ?>
-    <span class="btn btn-danger disabled"><i class="fa fa-trash-o"></i></span>
+    <span class="btn btn-danger disabled"><i class="fa fa-trash"></i></span>
     <?php else: ?>
     <a href="<?= $this->url('categories', 'crud', ['id' => $category->id]) ?>"
        class="btn btn-danger delete<?=($rootId === $category->id)?'-root':''?>"
        data-confirm data-ajax data-ajax-method="delete">
-        <i class="fa fa-trash-o"></i>
+        <i class="fa fa-trash"></i>
     </a>
     <?php endif; ?>
   </div>
