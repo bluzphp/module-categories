@@ -2,7 +2,7 @@
   "name": "bluzphp/module-categories",
   "type": "bluz-module",
   "license": "MIT",
-  "description": "bluz categories module",
+  "description": "Сategories bluz module",
   "require": {
     "bluzphp/framework": "~7.11",
     "bluzphp/composer-plugin": "~2.3"
